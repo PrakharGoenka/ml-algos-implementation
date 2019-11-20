@@ -29,7 +29,10 @@ def gradientDescent(x, y, theta, alpha, iters):
     for i in range(iters):
         hypothesis = np.dot(x, theta)
         loss = hypothesis - y
-        gradient = np.dot(xtrans.sample(), loss) / m
+        print(loss)
+        print(xtrans)
+        # exit()    
+        gradient = np.dot(np.transpose(x.sample()), loss) / m
         theta = theta - alpha * gradient
         err = error(x, y, theta)
         print("iter - ", i)

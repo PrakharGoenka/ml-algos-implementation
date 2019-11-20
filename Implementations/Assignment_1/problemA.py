@@ -1,14 +1,16 @@
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot
+import matplotlib.pyplot as plt
 from math import sqrt
 
 
 def plotData(x, y):
-    fig = pyplot.figure()
-    pyplot.plot(x, y, 'ro', ms=10, mec='k')
-    pyplot.ylabel('Y - axis')
-    pyplot.xlabel('X - axis')
+    # fig = plt.figure()
+    plt.plot(x, y)
+    plt.title("Linear Regression")
+    plt.ylabel('Sum square error')
+    plt.xlabel('iterations')
+    plt.show()
 
 def errorFunction(X, y, theta):
     m = y.shape[0]  # number of training examples
@@ -75,6 +77,7 @@ def main():
 
     # theta = [2.1114, 0.0811, -0.1856 ]
     print("final theta {:.4f}, {:.4f}, {:.4f}".format(*theta))
+    plotData(range(len(error_history)), error_history)
 
     error = rmse(theta, x_test, y_test)
     print(error)
